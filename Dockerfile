@@ -1,7 +1,7 @@
-FROM alpine:latest
+FROM node:alpine
 
 WORKDIR /opt
-RUN apk add --no-cache git nodejs
-ADD . /opt
+COPY ./package.* .
 RUN npm install --production
+COPY . .
 CMD ["node", "index.js"]
